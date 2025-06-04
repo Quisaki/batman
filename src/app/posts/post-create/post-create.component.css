@@ -1,0 +1,131 @@
+/* Container for image picker and preview */
+div {
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+/* Style for the Pick Image button */
+button[mat-stroked-button] {
+  font-weight: 600;
+  color: #3f51b5;
+  border-color: #3f51b5;
+  padding: 0.5rem 1.5rem;
+  transition: background-color 0.3s ease;
+  cursor: pointer;
+}
+
+button[mat-stroked-button]:hover {
+  background-color: #e8eaf6;
+}
+
+/* Image preview box styling */
+.image-preview {
+  margin: 1rem auto 2rem auto;
+  width: 250px;
+  height: 250px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  overflow: hidden;
+  border: 1px solid #ddd;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #fafafa;
+}
+
+.image-preview img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Loading spinner centered */
+mat-spinner {
+  display: block;
+  margin: 2rem auto;
+}
+
+/* Form styles */
+form {
+  max-width: 600px;
+  margin: 0 auto 3rem auto;
+  padding: 1rem 2rem;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  background-color: #fff;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Spacing between form fields */
+mat-form-field {
+  margin-bottom: 1.5rem;
+}
+
+/* Style submit button */
+button[mat-raised-button] {
+  display: block;
+  margin-left: auto;
+  padding: 0.6rem 2.4rem;
+  font-weight: 700;
+  font-size: 1.1rem;
+  box-shadow: 0 4px 10px rgba(63, 81, 181, 0.4);
+  transition: background-color 0.3s ease;
+}
+
+button[mat-raised-button]:disabled {
+  background-color: #9fa8da;
+  cursor: not-allowed;
+}
+
+/* Posts accordion container */
+mat-accordion {
+  max-width: 700px;
+  margin: 0 auto 3rem auto;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  background-color: #fff;
+}
+
+/* Each panel styling */
+mat-expansion-panel {
+  border-bottom: 1px solid #eee;
+}
+
+/* Panel header */
+mat-expansion-panel-header {
+  font-weight: 600;
+  font-size: 1.1rem;
+  color: #3f51b5;
+}
+
+/* Panel content paragraph */
+mat-expansion-panel p {
+  padding: 0 1.5rem 1rem 1.5rem;
+  font-size: 1rem;
+  color: #333;
+  line-height: 1.5;
+}
+
+/* Buttons inside each panel */
+mat-expansion-panel a[mat-button],
+mat-expansion-panel button[mat-button] {
+  margin: 0 0.5rem 1rem 0.5rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+mat-expansion-panel a[mat-button]:hover {
+  background-color: #c5cae9;
+}
+
+mat-expansion-panel button[mat-button] {
+  color: #d32f2f; /* warn color */
+}
+
+mat-expansion-panel button[mat-button]:hover {
+  background-color: #ef9a9a;
+  color: #b71c1c;
+}

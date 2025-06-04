@@ -1,0 +1,81 @@
+<!-- File picker button -->
+<div>
+  <button mat-stroked-button type="button" (click)="fileInput.click()">
+    Pick Image
+  </button>
+  <input
+    type="file"
+    #fileInput
+    style="display:none"
+    (change)="PickedImage($event)"
+  />
+</div>
+
+<!-- Image preview -->
+<div class="image-preview" *ngIf="Pickedimage !== '' && Pickedimage && form.get('image')?.valid">
+  <img [src]="Pickedimage" [alt]="form.value.title || 'Image preview'" />
+</div>
+
+<!-- Loading spinner -->
+<mat-spinner *ngIf="loading"></mat-spinner>
+
+<!-- Post add/edit form -->
+<form [formGroup]="form" (ngSubmit)="onAddPost()" *ngIf="!loading">
+  <mat-form-field appearance="fill" style="width: 100%;">
+    <input
+      matInput
+      type="text"
+      formControlName="title"
+      placeholder="Post Title"
+    />
+    <mat-error *ngIf="form.get('title')?.invalid && form.get('title')?.touched">
+      Title is required and must be at least 3 characters
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field appearance="fill" style="width: 100%;">
+    <textarea
+      matInput
+      rows="6"
+      formControlName="content"
+      placeholder="Post Content"
+    ></textarea>
+    <mat-error *ngIf="form.get('content')?.invalid && form.get('content')?.touched">
+      Content is required
+    </mat-error>
+  </mat-form-field>
+
+  <button
+    mat-raised-button
+    color="primary"
+    type="submit"
+    [disabled]="form.invalid"
+  >
+    {{ mode === 'create' ? 'Add Post' : 'Update Post' }}
+  </button>
+</form>
+
+<!-- Posts list accordion -->
+<mat-accordion multi="true" *ngIf="posts.length > 0 && !loading">
+  <mat-expansion-panel *ngFor="let post of posts">
+    <mat-expansion-panel-header>
+      {{ post.title }}
+    </mat-expansion-panel-header>
+
+    <p>{{ post.content }}</p>
+
+    <!-- Edit button -->
+    <a mat-button color="primary" [routerLink]="['/edit', post.id]">
+      EDIT
+    </a>
+
+    <!-- Delete button with safe check -->
+    <button
+      mat-button
+      color="warn"
+      (click)="post.id ? onDelete(post.id) : null"
+    >
+      DELETE
+    </button>
+  </mat-expansion-panel>
+</mat-accordion>

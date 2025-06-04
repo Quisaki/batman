@@ -1,0 +1,121 @@
+/* Overall accordion styling - wider and centered */
+mat-accordion {
+  display: block;
+  max-width: 900px;  /* a bit wider */
+  margin: 32px auto; /* more margin */
+}
+
+/* Style the mat-expansion-panel itself */
+mat-expansion-panel {
+  background-color: transparent; /* transparent to allow inner box */
+  margin-bottom: 20px; /* more spacing between cards */
+  border-radius: 14px;
+  transition: box-shadow 0.3s ease;
+}
+
+/* Box container inside the panel content */
+mat-expansion-panel > .mat-expansion-panel-content {
+  background-color: #fff;
+  border-radius: 14px;
+  border: 1.5px solid #ccc; /* slightly stronger border */
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+  padding: 28px 32px; /* bigger padding for spacious feel */
+  margin-top: 14px;
+  transition: box-shadow 0.3s ease;
+}
+
+/* Elevate box shadow on hover */
+mat-expansion-panel:hover > .mat-expansion-panel-content {
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.18);
+}
+
+/* Header styling - bigger and cleaner */
+mat-expansion-panel-header {
+  font-weight: 700;
+  font-size: 1; /* bigger font */
+  color: #1a1a1a; /* deeper dark */
+  padding: 20px 32px;
+  border-radius: 14px 14px 0 0;
+  background-color: #f5f5f7; /* subtle off-white */
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  letter-spacing: 0.03em;
+  font-family: "Georgia", serif;
+}
+
+/* Change header background on hover */
+mat-expansion-panel-header:hover {
+  background-color: #e4e4e7;
+}
+
+/* Image container */
+.post-image {
+  margin: 24px 0;
+  text-align: center;
+}
+
+/* Image styling */
+.post-image img {
+  max-width: 100%;
+  max-height: 220px; /* a bit taller */
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.12);
+  object-fit: contain;
+  border: 1.5px solid #ccc;
+  padding: 6px;
+  background-color: #fff;
+  display: inline-block;
+}
+
+/* Post content text - formal, readable */
+mat-expansion-panel p {
+  margin: 24px 0;
+  font-size: 1.125rem; /* bigger, easier to read */
+  line-height: 1.85;
+  color: #2e2e2e;
+  white-space: pre-wrap;
+  font-family: "Georgia";
+  font-weight: 400;
+  letter-spacing: 0.02em;
+  text-align: justify;
+  text-justify: inter-word;
+}
+
+/* Buttons container - keep spacing and bigger */
+mat-expansion-panel a[mat-button],
+mat-expansion-panel button[mat-button] {
+  margin-right: 20px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  min-width: 100px;
+  border-radius: 8px;
+  transition: background-color 0.3s ease;
+  box-shadow: 0 3px 8px rgba(0,0,0,0.12);
+  font-size: 0.9rem;
+  padding: 10px 16px;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Button hover effect */
+mat-expansion-panel a[mat-button]:hover,
+mat-expansion-panel button[mat-button]:hover {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+/* Buttons full width on small screens */
+@media (max-width: 600px) {
+  mat-expansion-panel a[mat-button],
+  mat-expansion-panel button[mat-button] {
+    display: block;
+    width: 100%;
+    margin: 12px 0;
+    text-align: center;
+  }
+}
+
+/* Center spinner nicely */
+mat-spinner {
+  display: block;
+  margin: 64px auto;
+}

@@ -1,0 +1,46 @@
+<mat-card>
+  <form (submit)="onSignup(signupForm)" #signupForm="ngForm" *ngIf="!loading">
+
+    <mat-form-field appearance="fill">
+      <input
+        matInput
+        name="email"
+        type="email"
+        placeholder="Email Id"
+        #emailInput="ngModel"
+        ngModel
+        required
+        email />
+      <mat-error *ngIf="emailInput.invalid && (emailInput.touched || signupForm.submitted)">
+        Please enter a valid email id
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <input
+        matInput
+        name="password"
+        type="password"
+        placeholder="Password"
+        #passwordInput="ngModel"
+        ngModel
+        required
+        minlength="6" />
+      <mat-error *ngIf="passwordInput.invalid && (passwordInput.touched || signupForm.submitted)">
+        Please enter a valid password (min 6 characters)
+      </mat-error>
+    </mat-form-field>
+
+    <button mat-raised-button color="primary" type="submit" [disabled]="signupForm.invalid">
+      Signup
+    </button>
+
+  </form>
+
+  <div style="margin-top: 16px; text-align: center;">
+    Already have an account? 
+    <a routerLink="/login" style="color: #080b0f; cursor: pointer; text-decoration: underline;">
+      Login here
+    </a>
+  </div>
+</mat-card>

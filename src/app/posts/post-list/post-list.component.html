@@ -1,0 +1,41 @@
+<!-- Spinner shows when loading -->
+<mat-spinner *ngIf="loading"></mat-spinner>
+
+<!-- Show posts when available and not loading -->
+<mat-accordion multi="true" *ngIf="posts.length > 0 && !loading">
+  <mat-expansion-panel *ngFor="let post of posts">
+    <mat-expansion-panel-header>
+      {{ post.title }}
+    </mat-expansion-panel-header>
+
+    <!-- Image display -->
+    <div class="post-image" *ngIf="post.imagePath">
+      <img [src]="post.imagePath" [alt]="post.title" style="max-width: 100%; height: auto;" />
+    </div>
+
+    <p>{{ post.content }}</p>
+
+    <!-- Show EDIT and DELETE buttons only if user is authenticated AND user owns the post -->
+    <mat-action-row *ngIf="userIsAuthenticated && userId === post.creator">
+      <a mat-button color="primary" [routerLink]="['/edit', post.id]">
+        EDIT
+      </a>
+      <button
+        mat-button
+        color="warn"
+        (click)="post.id ? onDelete(post.id) : null"
+      >
+        DELETE
+      </button>
+    </mat-action-row>
+  </mat-expansion-panel>
+</mat-accordion>
+
+<!-- Paginator for navigating pages -->
+<mat-paginator
+  [length]="totalPosts"
+  [pageSize]="postsPerPage"
+  [pageSizeOptions]="pageSizeOptions"
+  (page)="onPageChange($event)"
+  *ngIf="posts.length > 0">
+</mat-paginator>
